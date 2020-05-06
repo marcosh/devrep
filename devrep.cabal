@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: ad8d9d19214203280c95721961d193730eee9e2300ddd71555ef72aee9d0d57f
+-- hash: e012e2080a6a968f5f96715569a9427825105f4fefaa922d7e7cb3e8e5143ae5
 
 name:           devrep
 version:        0.1.0.0
@@ -24,6 +24,11 @@ library
       Devrep
       Devrep.API
       Devrep.Application
+      Devrep.Docs.API
+      Devrep.Docs.Capture
+      Devrep.Docs.Handler
+      Devrep.Docs.Sample
+      Devrep.Handler
       Devrep.Server
       Devrep.UserReputation
   other-modules:
@@ -33,9 +38,13 @@ library
   build-depends:
       aeson
     , base >=4.7 && <5
+    , bytestring
+    , http-types
     , servant
+    , servant-docs
     , servant-server
     , text
+    , wai
     , warp
   default-language: Haskell2010
 
@@ -48,10 +57,14 @@ executable devrep
   build-depends:
       aeson
     , base >=4.7 && <5
+    , bytestring
     , devrep
+    , http-types
     , servant
+    , servant-docs
     , servant-server
     , text
+    , wai
     , warp
   default-language: Haskell2010
 
@@ -66,10 +79,14 @@ test-suite devrep-test
       QuickCheck
     , aeson
     , base >=4.7 && <5
+    , bytestring
     , devrep
     , hspec
+    , http-types
     , servant
+    , servant-docs
     , servant-server
     , text
+    , wai
     , warp
   default-language: Haskell2010

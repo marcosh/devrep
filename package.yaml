@@ -13,9 +13,13 @@ extra-source-files:
 dependencies:
   - base >= 4.7 && < 5
   - aeson
+  - bytestring
+  - http-types
   - servant
+  - servant-docs
   - servant-server
   - text
+  - wai
   - warp
 
 library:

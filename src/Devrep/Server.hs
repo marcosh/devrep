@@ -1,18 +1,18 @@
-{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TypeOperators #-}
 
 module Devrep.Server where
 
 -- servant-server
 import Servant
 
--- text
-import Data.Text
-
 import Devrep.API
-import Devrep.UserReputation
+import Devrep.Docs.API
+import Devrep.Docs.Handler
+import Devrep.Handler
 
-server :: Server DevrepAPI
-server = userReputationHandler
+type API = DevrepAPI :<|> DocsAPI
 
-userReputationHandler :: Text -> Handler UserReputation
-userReputationHandler _ = pure $ UserReputation "marco" "perone"
+server :: Server API
+server
+  = userReputationHandler
+  :<|> docsHandler
