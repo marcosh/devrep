@@ -1,7 +1,6 @@
 module Main (main) where
 
-import Devrep (someFunc)
-
+import Devrep
 
 main :: IO ()
-main = someFunc
+main = devrepServer

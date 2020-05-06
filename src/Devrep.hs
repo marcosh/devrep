@@ -1,7 +1,9 @@
-module Devrep
-       ( someFunc
-       ) where
+module Devrep where
 
+-- warp
+import Network.Wai.Handler.Warp
 
-someFunc :: IO ()
-someFunc = putStrLn ("someFunc" :: String)
+import Devrep.Application
+
+devrepServer :: IO ()
+devrepServer = run 8081 app
