@@ -1,0 +1,33 @@
+name:                devrep
+version:             0.1.0.0
+synopsis:            Aggregator for online developers reputation
+description:         Aggregator for online developers reputation
+homepage:            https://github.com/marcosh/devrep#readme
+author:              Marco Perone
+maintainer:          pasafama@gmail.com
+copyright:           2020 Marco Perone
+category:            Web
+extra-source-files:
+- README.md
+
+dependencies:
+  - base >= 4.7 && < 5
+
+library:
+  source-dirs:       src
+
+executables:
+  devrep:
+    source-dirs:     app
+    main:            Main.hs
+    dependencies:
+      - devrep
+
+tests:
+  devrep-test:
+    main:            Spec.hs
+    source-dirs:     test
+    dependencies:
+      - devrep
+      - hspec
+      - QuickCheck
