@@ -6,7 +6,10 @@ import Data.Proxy
 -- servant
 import Servant
 
+-- wai-extra
+import Network.Wai.Middleware.RequestLogger
+
 import Devrep.Server
 
 app :: Application
-app = serve (Proxy :: Proxy API) server
+app = logStdoutDev $ serve (Proxy :: Proxy API) server
